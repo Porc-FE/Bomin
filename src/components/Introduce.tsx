@@ -49,7 +49,7 @@ export default contact;`,
 
   return (
     <>
-      <div className="sm:w-[326px] h-[308px] right-0 mr-[228px] border-1 border-t-0 border-[rgba(49,49,49,0.8)] overflow-hidden">
+      <div className="sm:w-[326px] h-hull right-0 mr-[228px] border-1 border-t-0 border-[rgba(49,49,49,0.8)] overflow-hidden">
         <div className="flex w-[326px] h-[23px] bg-[#313131] justify-between items-center opacity-100">
           <div className="mt-1 font-mono text-[10px] flex">
             <div className="ml-1.5 text-[#AEC6F6] flex gap-1">
@@ -67,11 +67,16 @@ export default contact;`,
             </div>
           </div>
         </div>
-        <pre className="break-words text-[11px] h-full overflow-x-hidden">
-          <SyntaxHighlighter language="tsx" style={vscDarkPlus} wrapLines={true}>
+        <div className="break-words text-[11px] h-full overflow-x-hidden">
+          <SyntaxHighlighter
+            language="tsx"
+            style={vscDarkPlus}
+            wrapLines={true}
+            customStyle={{ margin: 0, padding: 12 }}
+          >
             {codeMap[activeTab] ?? "// 내용 없음"}
           </SyntaxHighlighter>
-        </pre>
+        </div>
       </div>
     </>
   );
