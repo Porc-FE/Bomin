@@ -1,14 +1,14 @@
-import { useState } from "react";
 import bgNoise from "../assets/bg-img/noise2.png";
 import Header from "./Header";
 import Introduce from "./Introduce";
+import { useDarkMode } from "usehooks-ts";
 
 export default function Main() {
-  const [isDark, setIsDark] = useState(false);
+  const { isDarkMode } = useDarkMode();
   return (
     <>
       <div className="w-full h-screen relative dark:bg-[#131313] bg-[var(--white)] z-20">
-        {isDark && (
+        {isDarkMode && (
           <img
             src={bgNoise}
             className="absolute w-full h-full inset-0 opacity-60 dark:bg-repeat z-0"

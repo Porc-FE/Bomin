@@ -3,9 +3,10 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 //@ts-expect-error
 import { vscDarkPlus, prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useDarkMode } from "usehooks-ts";
 
 export default function Introduce() {
-  const [isDark, setIsDark] = useState(false);
+  const { isDarkMode } = useDarkMode();
   const tabs = ["profile-overview.html", "skills.html", "contact.ts"];
 
   const [activeTab, setActiveTab] = useState<string>(tabs[0]);
@@ -68,7 +69,7 @@ export default contact;`,
             </div>
           </div>
         </div>
-        {isDark ? (
+        {isDarkMode ? (
           <div className="break-words text-[11px] h-full overflow-x-hidden">
             <SyntaxHighlighter
               language="tsx"
