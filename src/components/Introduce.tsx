@@ -2,9 +2,11 @@ import { useState } from "react";
 //@ts-expect-error
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 //@ts-expect-error
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vscDarkPlus, prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useDarkMode } from "usehooks-ts";
 
 export default function Introduce() {
+  const { isDarkMode } = useDarkMode();
   const tabs = ["profile-overview.html", "skills.html", "contact.ts"];
 
   const [activeTab, setActiveTab] = useState<string>(tabs[0]);
@@ -67,16 +69,29 @@ export default contact;`,
             </div>
           </div>
         </div>
-        <div className="break-words text-[11px] h-full overflow-x-hidden">
-          <SyntaxHighlighter
-            language="tsx"
-            style={vscDarkPlus}
-            wrapLines={true}
-            customStyle={{ margin: 0, padding: 12 }}
-          >
-            {codeMap[activeTab] ?? "// 내용 없음"}
-          </SyntaxHighlighter>
-        </div>
+        {isDarkMode ? (
+          <div className="break-words text-[11px] h-full overflow-x-hidden">
+            <SyntaxHighlighter
+              language="tsx"
+              style={vscDarkPlus}
+              wrapLines={true}
+              customStyle={{ margin: 0, padding: 12 }}
+            >
+              {codeMap[activeTab] ?? "// 내용 없음"}
+            </SyntaxHighlighter>
+          </div>
+        ) : (
+          <div className="break-words text-[11px] h-full overflow-x-hidden">
+            <SyntaxHighlighter
+              language="tsx"
+              style={prism}
+              wrapLines={true}
+              customStyle={{ margin: 0, padding: 12 }}
+            >
+              {codeMap[activeTab] ?? "// 내용 없음"}
+            </SyntaxHighlighter>
+          </div>
+        )}
       </div>
     </>
   );
