@@ -16,9 +16,9 @@ export default function Main() {
         )}
 
         <Header />
-        <div className="absolute ml-10 h-screen w-px bg-[#e8e8e8] dark:bg-[var(--gray-1000)] dark:opacity-20 "></div>
-        <div className="absolute top-[178px] w-full h-px bg-[#e8e8e8] dark:bg-[var(--gray-1000)] dark:opacity-20"></div>
-        <div className="absolute top-[201px] w-full h-px bg-[#e8e8e8] dark:bg-[var(--gray-1000)] dark:opacity-20"></div>
+        <div className="absolute ml-10 h-screen w-px bg-[#e8e8e8] dark:bg-[var(--gray-800)] dark:opacity-20 "></div>
+        <div className="absolute top-[178px] w-full h-px bg-[#e8e8e8] dark:bg-[var(--gray-800)] dark:opacity-20"></div>
+        <div className="absolute top-[201px] w-full h-px bg-[#e8e8e8] dark:bg-[var(--gray-800)] dark:opacity-20"></div>
         <div className="absolute top-[178px] right-0">
           <Introduce />
         </div>
